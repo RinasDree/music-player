@@ -1,0 +1,437 @@
+body {
+  margin: 0;
+  font-family: 'Arial', sans-serif;
+  background-color: #121212;
+  color: white;
+}
+.container {
+  display: flex;
+}
+.sidebar {
+  width: 20%;
+  display: flex;
+  flex-direction: column;
+  padding: 5px;
+  height: 100vh;
+}
+.sidebar .logo{
+  width: 120px;
+  filter: drop-shadow(5px 10px 20px #7c00b6);
+}
+.logo {
+  display: none;
+  width: 100%;
+  margin-bottom: 20px;
+}
+nav {
+  margin: 5px 0px;
+  background: #282828;
+  padding: 20px;
+  border-radius: 10px;
+}
+nav ul {
+  list-style: none;
+  padding: 0;
+}
+nav ul li {
+  margin: 15px 0;
+}
+nav ul li a {
+  color: #b3b3b3;
+  text-decoration: none;
+  font-size: 14px;
+}
+nav ul li a.active, nav ul li a:hover {
+  color: white;
+}
+.playlist, .podcasts {
+  margin-top: 20px;
+}
+.playlist p, .podcasts p {
+  font-size: 12px;
+  margin-bottom: 10px;
+}
+.playlist button, .podcasts button {
+  background-color: #1db954;
+  color: white;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  font-size: 14px;
+  border-radius: 20px;
+}
+.footer-links {
+  margin-top: auto;
+  font-size: 10px;
+  color: #b3b3b3;
+}
+.fa-arrow-left {
+  color: white;
+}
+.footer-links a {
+  color: #b3b3b3;
+  text-decoration: none;
+  display: block;
+  margin: 5px 0;
+}
+.main {
+  flex-grow: 1;
+  padding: 20px;
+  overflow-y: auto;
+  background-color: #282828;
+  margin: 10px;
+}
+header button {
+  background: none;
+  border: none;
+  color: #b3b3b3;
+  font-size: 24px;
+  cursor: pointer;
+}
+.auth-buttons {
+  display: flex;
+  gap: 10px;
+}
+.auth-buttons .signup, .auth-buttons .login {
+  background: none;
+  border: 1px solid #b3b3b3;
+  color: #b3b3b3;
+  padding: 10px;
+  cursor: pointer;
+  font-size: 14px;
+  border-radius: 20px;
+}
+.auth-buttons .signup {
+  border-color: white;
+  color: white;
+}
+section {
+  margin-bottom: 40px;
+}
+section h2 {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+.artist-list, .album-list, .radio-list {
+  display: flex;
+  gap: 20px;
+}
+.artist, .album {
+  text-align: center;
+}
+.artist img{
+  border-radius: 50%;
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+}
+.album img {
+  border-radius: 5%;
+  width: 150px;
+  height: 150px;
+}
+.artist a {
+  color: white;
+  text-decoration: none;
+}
+.artist span, .album span {
+  display: block;
+  font-size: 12px;
+  color: #b3b3b3;
+}
+
+
+@media (max-width: 768px) {
+  .container {
+      flex-direction: column;
+  }
+  .sidebar {
+      width: 100%;
+      height: auto;
+      position: relative;
+  }
+  .main {
+      margin-left: 0;
+      padding-top: 20px;
+  }
+  .auth-buttons {
+      flex-direction: column;
+  }
+}
+@media (max-width: 480px) {
+  .artist-list, .album-list, .radio-list {
+      flex-direction: column;
+  }
+  .artist img, .album img, .radio {
+      width: 50%;
+  }
+}
+
+/* Shto stilin ekzistues këtu */
+
+/* Animacion për sidebar */
+@keyframes slideIn {
+  from {
+      transform: translateX(-100%);
+      opacity: 0;
+  }
+  to {
+      transform: translateX(0);
+      opacity: 1;
+  }
+}
+
+.sidebar {
+  animation: slideIn 1s ease-out;
+}
+
+/* Animacion për seksionet kryesore */
+@keyframes fadeIn {
+  from {
+      opacity: 0;
+      transform: translateY(20px);
+  }
+  to {
+      opacity: 1;
+      transform: translateY(0);
+  }
+}
+
+.main {
+  animation: fadeIn 1.5s ease-out;
+}
+
+/* Tranzicion për butonat e navigimit */
+header button {
+  background: none;
+  border: none;
+  color: #b3b3b3;
+  font-size: 24px;
+  cursor: pointer;
+  transition: color 0.3s;
+}
+
+header button:hover {
+  color: white;
+}
+
+/* Tranzicion për butonat e autentifikimit */
+.auth-buttons .signup, .auth-buttons .login {
+  background: none;
+  border: 1px solid #b3b3b3;
+  color: #b3b3b3;
+  padding: 10px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.auth-buttons .signup:hover, .auth-buttons .login:hover {
+  background-color: #1db954;
+  color: white;
+}
+
+/* Tranzicion për artistët dhe albumet */
+.artist img{
+  border-radius: 50%;
+  width: 150px;
+  height: 150px;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.album img {
+  border-radius: 5%;
+  width: 150px;
+  height: 150px;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.artist img:hover, .album img:hover {
+  transform: scale(1.1);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* Tranzicion për radiot */
+.radio {
+  background-color: #282828;
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+  font-size: 14px;
+  cursor: pointer;
+  flex: 1 0 150px;
+  transition: background-color 0.3s, transform 0.3s;
+}
+
+.radio:hover {
+  background-color: #1db954;
+  transform: scale(1.05);
+}
+
+/* Shto pjesën tjetër të stilit ekzistues këtu */
+
+/* Stilet ekzistuese */
+
+/* Stilet e përgjithshme */
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+header {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 10px 20px;
+  color: #b3b3b3;
+}
+
+.theme-toggle {
+  background: none;
+  border: none;
+  color: #b3b3b3;
+  font-size: 24px;
+  cursor: pointer;
+  transition: color 0.3s;
+  padding: 0px 5px;
+}
+
+.theme-toggle:hover {
+  color: white;
+}
+
+/* Modaliteti Light */
+body.light-mode {
+  background-color: #ffffff;
+  color: #000000;
+}
+
+body.light-mode header {
+  background-color: #f5f5f5;
+  color: #000000;
+}
+
+body.light-mode .sidebar, body.light-mode .main {
+  background-color: #ffffff;
+}
+
+body.light-mode .auth-buttons .signup, 
+body.light-mode .auth-buttons .login {
+  border-color: #000000;
+  color: #000000;
+}
+
+body.light-mode .artist img, body.light-mode .album img {
+  box-shadow: none;
+}
+
+body.light-mode .artist img:hover, 
+body.light-mode .album img:hover {
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+body.light-mode .radio {
+  background-color: #f5f5f5;
+}
+
+body.light-mode .radio:hover {
+  background-color: #1db954;
+  transform: scale(1.05);
+}
+
+/* Shto pjesën tjetër të stilit ekzistues këtu */
+
+
+.artist-details {
+  padding: 20px;
+}
+
+.artist-banner {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.artist-banner img {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  margin-right: 20px;
+  object-fit: cover;
+}
+
+.artist-info h1 {
+  margin-bottom: 10px;
+}
+
+.artist-info button{
+  background-color: #1db954;
+  color: white;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  font-size: 14px;
+  border-radius: 20px;
+}
+
+.artist-info .follow {
+  background-color: #1db954;
+  border: none;
+  color: #fff;
+  padding: 10px 20px;
+  border-radius: 25px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.artist-info .follow:hover {
+  background-color: #1ed760;
+}
+
+.artist-bio,
+.artist-albums {
+  margin-bottom: 40px;
+}
+
+.artist-albums .album-list {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.artist-albums .album {
+  width: 18%;
+  background-color: #282828;
+  padding: 10px;
+  border-radius: 10px;
+  text-align: center;
+  margin-bottom: 20px;
+  transition: transform 0.3s ease;
+}
+
+.artist-albums .album:hover {
+  transform: translateY(-10px);
+}
+
+.artist-albums .album img {
+  width: 100%;
+  border-radius: 10px;
+  margin-bottom: 10px;
+}
+
+.artist-albums .album p {
+  font-weight: 600;
+  margin-bottom: 5px;
+}
+
+.artist-albums .album span {
+  color: #b3b3b3;
+  font-size: 14px;
+}
+
+.artist-details a {
+  color: white;
+  text-decoration: none;
+}
