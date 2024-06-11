@@ -1,0 +1,85 @@
+.player {
+    position: relative;
+    margin-bottom: 20px; /* Space to leave for the player at the bottom */
+  }
+  
+  .controls {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: baseline;
+    background-color: #282828;
+    padding: 20px;
+    border-radius: 10px;
+    color: white;
+  }
+  
+  .controls button {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 1.5em;
+    cursor: pointer;
+  }
+  
+  .controls button:hover {
+    color: #1db954;
+  }
+  
+  .progress-bar {
+    position: relative;
+    width: 100%;
+    height: 100px;
+    background-color: #333;
+  }
+  
+  .visualizer {
+    display: flex;
+    height: 100%;
+    justify-content: space-between;
+    align-items: flex-end;
+  }
+  
+  .bar {
+    width: 5px;
+    background-color: #1db954;
+    transition: height 0.2s;
+  }
+  
+  button {
+    background: none;
+    border: none;
+    font-size: 1.5em;
+    color: #333;
+    cursor: pointer;
+    margin: 0 10px;
+  }
+  
+  button:hover {
+    color: #1db954; /* Green color on hover */
+  }
+  
+  input[type="range"] {
+    width: calc(100% - 20px);
+    margin: 0 10px;
+    -webkit-appearance: none;
+    background: #1db954; /* Green background for the track */
+    height: 8px; /* Height of the track */
+    border-radius: 4px; /* Rounded corners */
+  }
+  
+  input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 16px; /* Width of the thumb */
+    height: 16px; /* Height of the thumb */
+    background: #fff; /* White color for the thumb */
+    border-radius: 50%; /* Circle shape */
+    cursor: pointer;
+  }
+  
+  input[type="range"]::-moz-range-thumb {
+    width: 16px; /* Width of the thumb for Firefox */
+    height: 16px; /* Height of the thumb for Firefox */
+    background: #fff; /* White color for the thumb for Firefox */
+    border-radius: 50%; /* Circle shape for Firefox */
+    cursor: pointer;
+  }

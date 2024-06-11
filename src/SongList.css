@@ -1,0 +1,59 @@
+.song-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 20px;
+  }
+  
+  .song-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #282828;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .song-item:hover {
+    background-color: #1db954;
+  }
+  
+  .song-info {
+    display: flex;
+    gap: 5px;
+    align-items: baseline;
+  }
+  
+  .song-title {
+    font-size: 16px;
+    color: #fff;
+  }
+  
+  .song-artist {
+    font-size: 14px;
+  }
+  
+  .song-duration {
+    font-size: 14px;
+  }
+  
+  .play-button {
+    background-color: transparent;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+    font-size: 16px;
+  }
+  
+  .play-button:hover {
+    color: #1db954;
+  }
+  .play-pause-icon {
+    padding: 10px;
+  }
+  
+  .song.selected {
+    background-color: #1db954; /* Green background color for selected song */
+}
