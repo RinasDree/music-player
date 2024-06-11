@@ -1,57 +1,45 @@
 import React, { useState, useEffect } from 'react';
 import './PopularArtists.css'; // Import CSS file for styling
 
-import DafinaImage from './images/Dafina.png';
-import NoizyImage from './images/Noizy.png';
-import McKreshaImage from './images/McKresha.png';
-import DrakeImage from './images/Drake.png';
-import TheWeekendImage from './images/TheWeekend.png';
-
-const artists = [
-  { name: "Dafina Zeqiri", image: DafinaImage, bio: "Bio for Dafina Zeqiri", albums: [] },
-  { name: "Noizy", image: NoizyImage, bio: "Bio for Noizy", albums: [] },
-  { name: "Mc Kresha", image: McKreshaImage, bio: "Bio for Mc Kresha", albums: [] },
-  { name: "Drake", image: DrakeImage, bio: "Bio for Drake", albums: [] },
-  { name: "The Weekend", image: TheWeekendImage, bio: "Bio for The Weekend", albums: [] },
-  { name: "Dafina Zeqiri", image: DafinaImage, bio: "Bio for Dafina Zeqiri", albums: [] },
-  { name: "Noizy", image: NoizyImage, bio: "Bio for Noizy", albums: [] },
-  { name: "Mc Kresha", image: McKreshaImage, bio: "Bio for Mc Kresha", albums: [] },
-  { name: "Drake", image: DrakeImage, bio: "Bio for Drake", albums: [] },
-  { name: "The Weekend", image: TheWeekendImage, bio: "Bio for The Weekend", albums: [] },
-  { name: "Dafina Zeqiri", image: DafinaImage, bio: "Bio for Dafina Zeqiri", albums: [] },
-  { name: "Noizy", image: NoizyImage, bio: "Bio for Noizy", albums: [] },
-  { name: "Mc Kresha", image: McKreshaImage, bio: "Bio for Mc Kresha", albums: [] },
-  { name: "Drake", image: DrakeImage, bio: "Bio for Drake", albums: [] },
-  { name: "The Weekend", image: TheWeekendImage, bio: "Bio for The Weekend", albums: [] },
-  { name: "Dafina Zeqiri", image: DafinaImage, bio: "Bio for Dafina Zeqiri", albums: [] },
-  { name: "Noizy", image: NoizyImage, bio: "Bio for Noizy", albums: [] },
-  { name: "Mc Kresha", image: McKreshaImage, bio: "Bio for Mc Kresha", albums: [] },
-  { name: "Drake", image: DrakeImage, bio: "Bio for Drake", albums: [] },
-  { name: "The Weekend", image: TheWeekendImage, bio: "Bio for The Weekend", albums: [] },
-  { name: "Dafina Zeqiri", image: DafinaImage, bio: "Bio for Dafina Zeqiri", albums: [] },
-  { name: "Noizy", image: NoizyImage, bio: "Bio for Noizy", albums: [] },
-  { name: "Mc Kresha", image: McKreshaImage, bio: "Bio for Mc Kresha", albums: [] },
-  { name: "Drake", image: DrakeImage, bio: "Bio for Drake", albums: [] },
-  { name: "The Weekend", image: TheWeekendImage, bio: "Bio for The Weekend", albums: [] },
-  { name: "Dafina Zeqiri", image: DafinaImage, bio: "Bio for Dafina Zeqiri", albums: [] },
-  { name: "Noizy", image: NoizyImage, bio: "Bio for Noizy", albums: [] },
-  { name: "Mc Kresha", image: McKreshaImage, bio: "Bio for Mc Kresha", albums: [] },
-  { name: "Drake", image: DrakeImage, bio: "Bio for Drake", albums: [] },
-  { name: "The Weekend", image: TheWeekendImage, bio: "Bio for The Weekend", albums: [] },
-  // Repeat the artists for demonstration
-];
-
 function PopularArtists({ onArtistClick }) {
+  const [artists, setArtists] = useState([]);
   const [scrollPosition, setScrollPosition] = useState(0);
 
   useEffect(() => {
+    const ids = '2w9zwq3AktTeYYMuhMjju8'; // Define the ids parameter value
+    const url = `https://spotify23.p.rapidapi.com/artists/?ids=${ids}`; // Include the ids parameter in the URL
+    const options = {
+      method: 'GET',
+      headers: {
+        'x-rapidapi-host': 'spotify23.p.rapidapi.com',
+        'x-rapidapi-key': '21e1344b33msh10b92b3ddec1d58p1989d7jsnd8b76f75b0d6'
+      }
+    };
+
+    // Fetch artists data from the API and set the state with the received data
+    const fetchArtists = async (url, options) => {
+      try {
+        const response = await fetch(url, options);
+        const data = await response.json();
+        // Repeat the same artist 20 times
+        const repeatedArtists = Array(20).fill(data.artists[0]);
+        setArtists(repeatedArtists); // Set the artists state with the repeated data
+      } catch (error) {
+        console.error('Error fetching artists:', error);
+      }
+    };
+
+    fetchArtists(url, options); // Call the fetchArtists function when the component mounts
+  }, []); // Empty dependency array ensures this effect runs only once
+
+  useEffect(() => {
     const interval = setInterval(() => {
-      const nextPosition = scrollPosition + 200; // Adjust as needed for smooth scrolling
+      const nextPosition = scrollPosition + 195; // Adjust as needed for smooth scrolling
       setScrollPosition(nextPosition % (artists.length * 100)); // Reset to 0 when reaching the end
     }, 2500); // Change the duration of auto-scrolling here (in milliseconds)
 
     return () => clearInterval(interval);
-  }, [scrollPosition]);
+  }, [scrollPosition, artists.length]);
 
   return (
     <section className="popular-artists fade-in" id="popularArtists">
@@ -60,7 +48,7 @@ function PopularArtists({ onArtistClick }) {
         <div className="artist-list" style={{ transform: `translateX(-${scrollPosition}px)` }}>
           {artists.map((artist, index) => (
             <div key={index} className="artist" onClick={() => onArtistClick(artist)}>
-              <img src={artist.image} alt={artist.name} />
+              {artist.images[1] && <img src={artist.images[1].url} alt={artist.name} />} {/* Render only the second image */}
               <p>{artist.name}</p>
             </div>
           ))}
@@ -68,6 +56,7 @@ function PopularArtists({ onArtistClick }) {
       </div>
     </section>
   );
+
 }
 
 export default PopularArtists;
