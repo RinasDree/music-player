@@ -1,9 +1,11 @@
 import React from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faArrowLeft } from '@fortawesome/free-solid-svg-icons';
 
 function ArtistDetails({ artist, onBackClick }) {
   return (
     <div className="artist-details">
-      <a href="#" onClick={onBackClick}><i className="fas fa-arrow-left"></i> Back</a>
+      <a href="#" onClick={onBackClick}><FontAwesomeIcon icon={faArrowLeft} /></a>
       <div className="artist-banner">
         <img src={artist.image} alt={artist.name} />
         <div className="artist-info">

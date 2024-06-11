@@ -1,0 +1,38 @@
+.popular-artists {
+    /* Your existing styles for popular artists section */
+  }
+  
+  .artist-slider {
+    overflow: hidden;
+    padding: 10px;
+  }
+  
+  .artist-list {
+    display: flex;
+    transition: transform 0.5s ease;
+  }
+  
+  .artist {
+    margin-right: 20px; /* Adjust as needed */
+  }
+  
+  button.prev,
+  button.next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+  }
+  
+  button.prev {
+    left: 0;
+    color: green;
+  }
+  
+  button.next {
+    right: 0;
+    color: green;
+  }
+  
