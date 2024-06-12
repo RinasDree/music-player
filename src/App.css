@@ -181,7 +181,9 @@ section h2 {
       opacity: 1;
   }
 }
-
+.signup-container, .App {
+  animation: slideIn 1s ease-out;
+}
 .sidebar {
   animation: slideIn 1s ease-out;
 }
