@@ -1,31 +1,30 @@
 import React from 'react';
 import '../App.css';
 
-function Signup() {
+function Login() {
   return (
     <div className="App">
       <div className="signup-container">
-        <h2>Sign Up</h2>
+        <h2>Log In</h2>
         <div className="signup-form">
           <input type="email" placeholder="name@domain.com" className="input-field" />
-          <input type="text" placeholder="Fullname" className="input-field" />
           <input type="password" placeholder="Password" className="input-field" />
-          <button className="login-button">Sign Up</button>
+          <button className="login-button">Log In</button>
         </div>
         <div className="or-divider">
           <span>or</span>
         </div>
         <div className="social-signup-buttons">
-          <button className="google-button">Sign up with Google</button>
-          <button className="facebook-button">Sign up with Facebook</button>
-          <button className="apple-button">Sign up with Apple</button>
+          <button className="google-button">Log in with Google</button>
+          <button className="facebook-button">Log in with Facebook</button>
+          <button className="apple-button">Log in with Apple</button>
         </div>
         <div className="login-link">
-          Already have an account? <a href="/login">Log in here.</a>
+          Don't have an account? <a href="/sign-up">Sign up here.</a>
         </div>
       </div>
     </div>
   );
 }
 
-export default Signup;
+export default Login;
