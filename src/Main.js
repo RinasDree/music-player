@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import Header from './Header';
-import PopularArtists from './PopularArtists';
+import Header from './header/Header';
+import PopularArtists from './landinPage/PopularArtists';
 import ArtistDetails from './ArtistDetails';
 import Player from './Player';
 import SongList from './SongList';
