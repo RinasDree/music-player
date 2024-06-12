@@ -7,8 +7,10 @@ function Header() {
       <div className="auth-buttons">
         <Link to="/sign-up">
           <button className="signup">Sign up</button>
+        </Link >
+        <Link to="/login">
+          <button className="login">Log in</button>
         </Link>
-        <button className="login">Log in</button>
       </div>
     </header>
   );
