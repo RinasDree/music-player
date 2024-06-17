@@ -1,10 +1,25 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
+
 import '../App.css';
 
+const buttonStyle = {
+  color: 'white',
+  textAlign: 'center',
+  textDecoration: 'none',
+  display: 'inline-block',
+  fontSize: '16px',
+  cursor: 'pointer',
+  position: 'absolute', // Use absolute positioning
+  top: '10px', // Distance from the top of signup-container
+  left: '10px', // Distance from the left of signup-container
+  zIndex: '100', // Ensure it stays above other content
+};
 function Signup() {
   return (
     <div className="App">
-      <div className="signup-container">
+         <div className="signup-container" style={{ position: 'relative'}}>
+         <Link to="/" style={buttonStyle}>&#8592; </Link> {/* Back button */}
         <h2>Sign Up</h2>
         <div className="signup-form">
           <input type="email" placeholder="name@domain.com" className="input-field" />
