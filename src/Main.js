@@ -15,23 +15,33 @@ import Mckresha1 from './songs/mckresha1.mp3'
 import Mckresha2 from './songs/mckresha2.mp3'
 import Mckresha3 from './songs/mckresha3.mp3'
 
+import drake1 from './songs/drake1.mp3'
+
+import ledri from './songs/ledri.mp3'
+import ledri1 from './songs/ledri1.mp3'
+import ledri2 from './songs/ledri2.mp3'
+
+import majk from './songs/majk.mp3'
+import majk1 from './songs/majk1.mp3'
+import majk2 from './songs/majk2.mp3'
+
 
 
 
 const songs = [
-  { id: 1, title: 'Jom ka du me t’pa', artist: "Dafina Zeqiri x Yll Limani", url: Dafina1, artistId: '6V6mxrGG67IyLFy2l4poNZ' },
-  { id: 2, title: 'Ku ma le forcen', artist: "Dafina Zeqiri", url: Dafina2, artistId: '6V6mxrGG67IyLFy2l4poNZ' },
-  { id: 3, title: 'My love', artist: "Dafina Zeqiri", url: Dafina3, artistId: '6V6mxrGG67IyLFy2l4poNZ' },
-  { id: 4, title: 'Shake it', artist: "Mc Kresha", url: Mckresha1, artistId: '6fZ3U139Fb4VfOv7g63XhB' },
-  { id: 5, title: 'Poem', artist: "Mc Kresha", url: Mckresha2, artistId: '6fZ3U139Fb4VfOv7g63XhB' },
-  { id: 6, title: 'Perla', artist: "Mc Kresha", url: Mckresha3, artistId: '6fZ3U139Fb4VfOv7g63XhB' },
-  { id: 7, title: 'Song 7', artist: "Artist 7", url: 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-7.mp3', artistId: '2YZyLoL8N0Wb9xBt1NhZWg' },
-  { id: 8, title: 'Song 8', artist: "Artist 8", url: 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-8.mp3', artistId: '6l3HvQ5sa6mXTsMTB19rO5' },
-  { id: 9, title: 'Song 9', artist: "Artist 9", url: 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-9.mp3', artistId: '7aLbqaCIv1zAI6HCfPCMjI' },
-  { id: 10, title: 'Song 10', artist: "Artist 10", url: 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-10.mp3', artistId: '1Ld3ajH4r4DZd5Ey4zLk5X' },
-  { id: 11, title: 'Song 11', artist: "Artist 11", url: 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-11.mp3', artistId: '6YGhVeajpGcixgdaTfakUL' },
-  { id: 12, title: 'Song 12', artist: "Artist 12", url: 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-12.mp3', artistId: '2oemnVL2uc5GiNj9NNH4pz' },
-  { id: 13, title: 'Song 13', artist: "Artist 13", url: 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-13.mp3', artistId: '2bQn1DFQtxawFMLRORIg0A' }
+  { id: 1, title: "'Jom ka du me t’pa'", artist: "Dafina Zeqiri x Yll Limani", url: Dafina1, artistId: '6V6mxrGG67IyLFy2l4poNZ' },
+  { id: 2, title: "'Ku ma le forcen'", artist: "Dafina Zeqiri", url: Dafina2, artistId: '6V6mxrGG67IyLFy2l4poNZ' },
+  { id: 3, title: "'My love'", artist: "Dafina Zeqiri", url: Dafina3, artistId: '6V6mxrGG67IyLFy2l4poNZ' },
+  { id: 4, title: "'Shake it'", artist: "Mc Kresha", url: Mckresha1, artistId: '6fZ3U139Fb4VfOv7g63XhB' },
+  { id: 5, title: "'Poem'", artist: "Mc Kresha", url: Mckresha2, artistId: '6fZ3U139Fb4VfOv7g63XhB' },
+  { id: 6, title: "'Perla'", artist: "Mc Kresha", url: Mckresha3, artistId: '6fZ3U139Fb4VfOv7g63XhB' },
+  { id: 7, title: "'THE HEART PART 6'", artist: "Drake", url: drake1, artistId: '3TVXtAsR1Inumwj472S9r4' },
+  { id: 8, title: "'Kill Me'", artist: "Ledri Vula", url: ledri, artistId: '5519qQ4H5p0qIIidEWUOB6' },
+  { id: 9, title: "'Cka i bone'", artist: "Dj Geek & YA NINA ft Ledri Vula", url: ledri1, artistId: '5519qQ4H5p0qIIidEWUOB6' },
+  { id: 10, title: "'NO LOVE'", artist: "Ledri Vula x Elvana Gjata", url: ledri2, artistId: '5519qQ4H5p0qIIidEWUOB6' },
+  { id: 11, title: "'Temelin'", artist: "MAJK", url: majk, artistId: '1Ld3ajH4r4DZd5Ey4zLk5X' },
+  { id: 12, title: "' E JEMJA'", artist: "ZUNA x MAJK", url: majk1, artistId: '1Ld3ajH4r4DZd5Ey4zLk5X' },
+  { id: 13, title: "'Viking'", artist: "MAJK", url: majk2, artistId: '1Ld3ajH4r4DZd5Ey4zLk5X' }
 ];
 
 function Main({ selectedArtist, onArtistClick, onBackClick }) {
