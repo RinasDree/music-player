@@ -9,7 +9,7 @@ import Header from './header/Header';
 import Layout from './Layout';
 
 function App() {
-  const [selectedArtist, setSelectedArtist] = useState(null);
+  const [selectedArtist, setSelectedArtist,currentSong, setCurrentSong] = React.useState(null);
 
   const handleArtistClick = (artist) => {
     setSelectedArtist(artist);
@@ -38,6 +38,7 @@ function App() {
       </div>
     </BrowserRouter>
   );
+  
 }
 
 export default App;

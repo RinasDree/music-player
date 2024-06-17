@@ -113,7 +113,7 @@ section h2 {
   font-size: 24px;
   margin-bottom: 20px;
 }
-.artist-list, .album-list, .radio-list {
+.artist-list, .album-list{
   display: flex;
   gap: 20px;
 }
@@ -253,24 +253,6 @@ header button:hover {
   transform: scale(1.1);
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
 }
-
-/* Tranzicion për radiot */
-.radio {
-  background-color: #282828;
-  padding: 20px;
-  border-radius: 10px;
-  text-align: center;
-  font-size: 14px;
-  cursor: pointer;
-  flex: 1 0 150px;
-  transition: background-color 0.3s, transform 0.3s;
-}
-
-.radio:hover {
-  background-color: #1db954;
-  transform: scale(1.05);
-}
-
 /* Shto pjesën tjetër të stilit ekzistues këtu */
 
 /* Stilet ekzistuese */
