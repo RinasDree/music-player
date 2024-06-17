@@ -357,6 +357,7 @@ body.light-mode .radio:hover {
   padding: 10px;
   cursor: pointer;
   font-size: 14px;
+  margin: 0;
   border-radius: 20px;
 }
 
