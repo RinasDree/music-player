@@ -27,7 +27,7 @@ function PopularArtists({ onArtistClick }) {
       method: 'GET',
       headers: {
         'x-rapidapi-host': 'spotify23.p.rapidapi.com',
-        'x-rapidapi-key': '7db7ec5184msh590607ee60acb8ep1b4909jsnb146d8d002c9'
+        'x-rapidapi-key': '13780c0c66mshd80d429a92f637dp1d190ajsnd7a980c476e0'
       }
     };
 
@@ -35,7 +35,9 @@ function PopularArtists({ onArtistClick }) {
       try {
         const response = await fetch(url, options);
         const data = await response.json();
-        setArtists(data.artists); // Set the artists state with the fetched data
+        if (data.artists) {
+          setArtists(data.artists); // Set the artists state with the fetched data
+        }
       } catch (error) {
         console.error('Error fetching artists:', error);
       }
@@ -45,12 +47,14 @@ function PopularArtists({ onArtistClick }) {
   }, []);
 
   useEffect(() => {
-    const interval = setInterval(() => {
-      const nextPosition = scrollPosition + 130; // Adjust as needed for smooth scrolling
-      setScrollPosition(nextPosition % (artists.length * 130)); // Reset to 0 when reaching the end
-    }, 2800); // Change the duration of auto-scrolling here (in milliseconds)
+    if (artists.length > 0) {
+      const interval = setInterval(() => {
+        const nextPosition = scrollPosition + 130; // Adjust as needed for smooth scrolling
+        setScrollPosition(nextPosition % (artists.length * 130)); // Reset to 0 when reaching the end
+      }, 2800); // Change the duration of auto-scrolling here (in milliseconds)
 
-    return () => clearInterval(interval);
+      return () => clearInterval(interval);
+    }
   }, [scrollPosition, artists.length]);
 
   return (
@@ -60,7 +64,7 @@ function PopularArtists({ onArtistClick }) {
         <div className="artist-list" style={{ transform: `translateX(-${scrollPosition}px)` }}>
           {artists.map((artist, index) => (
             <div key={index} className="artist" onClick={() => onArtistClick(artist)}>
-              {artist.images[1] && <img src={artist.images[1].url} alt={artist.name} />} {/* Render only the second image */}
+              {artist.images && artist.images[1] && <img src={artist.images[1].url} alt={artist.name} />} {/* Render only the second image */}
               <p>{artist.name}</p>
             </div>
           ))}

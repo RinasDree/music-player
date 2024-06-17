@@ -1,8 +1,7 @@
 import React, { useRef, useState, useEffect } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlay, faPause, faStepBackward, faStepForward } from '@fortawesome/free-solid-svg-icons';
-import './Player.css';  // Sigurohuni të shtoni stilizimin tuaj këtu
-
+import './Player.css';  // Make sure to add your styles here
 
 function Player({ songs, currentSongIndex, setCurrentSongIndex }) {
     const audioRef = useRef(null);
@@ -22,12 +21,6 @@ function Player({ songs, currentSongIndex, setCurrentSongIndex }) {
 
     const playPauseHandler = () => {
         setIsPlaying(!isPlaying);
-        if (!isPlaying) {
-            audioRef.current.play().catch(error => console.error("Error playing audio:", error));
-        } else {
-            audioRef.current.pause();
-            audioRef.current.currentTime = 0; // Kjo linjë rikthen kohën e këngës në fillim
-        }
     };
 
     const nextSongHandler = () => {
@@ -55,16 +48,11 @@ function Player({ songs, currentSongIndex, setCurrentSongIndex }) {
         setSongInfo({ ...songInfo, currentTime: e.target.value });
     };
 
-    useEffect(() => {
-        audioRef.current.src = songs[currentSongIndex].url;
-        audioRef.current.play().catch(error => console.error("Error playing audio:", error));
-        setSongInfo({ ...songInfo, duration: audioRef.current.duration });
-    }, [currentSongIndex]);
-
     return (
         <div className="player">
             <audio
                 ref={audioRef}
+                src={songs[currentSongIndex].url}
                 onError={(e) => console.error("Audio error:", e)}
                 onTimeUpdate={timeUpdateHandler}
                 onLoadedMetadata={timeUpdateHandler}

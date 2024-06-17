@@ -24,14 +24,14 @@ function Main({ selectedArtist, onArtistClick, onBackClick }) {
       method: 'GET',
       headers: {
         'x-rapidapi-host': 'spotify23.p.rapidapi.com',
-        'x-rapidapi-key': '7db7ec5184msh590607ee60acb8ep1b4909jsnb146d8d002c9'
+        'x-rapidapi-key': '113780c0c66mshd80d429a92f637dp1d190ajsnd7a980c476e0'
       }
     };
 
     try {
       const response = await fetch(url, options);
       const data = await response.json();
-      console.log('API Response:', data); // Log the API response
+      console.log('API Response:', data); // Log the API responseeeee
       setSearchResults(data);
     } catch (error) {
       console.error(error);
