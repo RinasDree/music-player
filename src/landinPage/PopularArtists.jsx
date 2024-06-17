@@ -6,37 +6,49 @@ function PopularArtists({ onArtistClick }) {
   const [scrollPosition, setScrollPosition] = useState(0);
 
   useEffect(() => {
-    const ids = '2w9zwq3AktTeYYMuhMjju8'; // Define the ids parameter value
-    const url = `https://spotify23.p.rapidapi.com/artists/?ids=${ids}`; // Include the ids parameter in the URL
+    const artistIds = [
+      '3TVXtAsR1Inumwj472S9r4', 
+      '6fZ3U139Fb4VfOv7g63XhB', 
+      '6V6mxrGG67IyLFy2l4poNZ', 
+      '2SabhGDiBSyaM6QSuBUVqB',
+      '5519qQ4H5p0qIIidEWUOB6',
+      '1Xyo4u8uXC1ZmMpatF05PJ',
+      '2YZyLoL8N0Wb9xBt1NhZWg',
+      '6l3HvQ5sa6mXTsMTB19rO5',
+      '7aLbqaCIv1zAI6HCfPCMjI',
+      '1Ld3ajH4r4DZd5Ey4zLk5X',
+      '6YGhVeajpGcixgdaTfakUL',
+      '2oemnVL2uc5GiNj9NNH4pz',
+      '2bQn1DFQtxawFMLRORIg0A'
+    ];
+
+    const url = `https://spotify23.p.rapidapi.com/artists/?ids=${artistIds.join(',')}`; // Join IDs with commas
     const options = {
       method: 'GET',
       headers: {
         'x-rapidapi-host': 'spotify23.p.rapidapi.com',
-        'x-rapidapi-key': '21e1344b33msh10b92b3ddec1d58p1989d7jsnd8b76f75b0d6'
+        'x-rapidapi-key': '7db7ec5184msh590607ee60acb8ep1b4909jsnb146d8d002c9'
       }
     };
 
-    // Fetch artists data from the API and set the state with the received data
     const fetchArtists = async (url, options) => {
       try {
         const response = await fetch(url, options);
         const data = await response.json();
-        // Repeat the same artist 20 times
-        const repeatedArtists = Array(20).fill(data.artists[0]);
-        setArtists(repeatedArtists); // Set the artists state with the repeated data
+        setArtists(data.artists); // Set the artists state with the fetched data
       } catch (error) {
         console.error('Error fetching artists:', error);
       }
     };
 
-    fetchArtists(url, options); // Call the fetchArtists function when the component mounts
-  }, []); // Empty dependency array ensures this effect runs only once
+    fetchArtists(url, options);
+  }, []);
 
   useEffect(() => {
     const interval = setInterval(() => {
-      const nextPosition = scrollPosition + 195; // Adjust as needed for smooth scrolling
-      setScrollPosition(nextPosition % (artists.length * 100)); // Reset to 0 when reaching the end
-    }, 2500); // Change the duration of auto-scrolling here (in milliseconds)
+      const nextPosition = scrollPosition + 130; // Adjust as needed for smooth scrolling
+      setScrollPosition(nextPosition % (artists.length * 130)); // Reset to 0 when reaching the end
+    }, 2800); // Change the duration of auto-scrolling here (in milliseconds)
 
     return () => clearInterval(interval);
   }, [scrollPosition, artists.length]);
@@ -56,7 +68,6 @@ function PopularArtists({ onArtistClick }) {
       </div>
     </section>
   );
-
 }
 
 export default PopularArtists;
