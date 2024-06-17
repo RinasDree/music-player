@@ -1,0 +1,32 @@
+.main {
+    padding-bottom: 100px; /* Ensure space at the bottom for the fixed player */
+  }
+  
+  .fixed-player {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: #fff; /* Background color for the player */
+    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1); /* Optional: add a shadow for better visibility */
+    z-index: 1000; /* Ensure it appears above other content */
+  }
+  
+  .load-more {
+    display: block;
+    margin: 20px auto;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    background-color: #1db954; /* Button color */
+    color: #fff; /* Text color */
+    border: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .load-more:hover {
+    background-color: #fff; /* Hover color */
+    color: #1db954;
+  }
+  

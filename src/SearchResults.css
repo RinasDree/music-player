@@ -40,3 +40,12 @@
     color: #1db954;
   }
   
+  .artist-item img {
+    width: 50%;
+  }
+  .album-item img {
+    width: 50%;
+  }
+  .track-item img {
+    width: 50%;
+  }
